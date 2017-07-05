@@ -42,7 +42,7 @@ module.exports = {
 
   nodeInfo(req, res) {
     exec('node -v -desc', { encoding: 'utf8', maxBuffer: 100*1024*1024 }, function(err, stdout, stderr) {
-      if (err) console.log(err)
+      if (err) return res.status(500).send(err);
       return res.status(200).send(stdout);
     });
   },
@@ -50,14 +50,13 @@ module.exports = {
 
   nodeModules(req, res) {
     exec('npm ls --long --depth=0 --parseable | sort -u', { encoding: 'utf8', maxBuffer: 10*1024*1024 }, function(err, stdout, stderr) {
-      if (err) console.log(err)
+      if (err) return res.status(500).send(err);
 
       // creem nou text substituint cada linea
       let text = '';
       let lines = stdout.split('\n');
 
       _.each(lines, (value) => {
-        console.log(value);
         if (value.indexOf('node_modules') !== -1) {
           text += value.split(':')[1] + '\n';
         }
@@ -70,7 +69,7 @@ module.exports = {
 
   mongoInfo(req, res) {
     exec('mongod -version', { encoding: 'utf8', maxBuffer: 100*1024*1024 }, function(err, stdout, stderr) {
-      if (err) console.log(err)
+      if (err) return res.status(500).send(err);
       return res.status(200).send(stdout);
     });
   },
@@ -88,12 +87,11 @@ module.exports = {
 
     logger.query(options, (err, results) => {
       if (err) {
-        return res.status(400).send(err);
+        return res.status(500).send(err);
       } else {
         return res.status(200).send(results.file);
       }
     });
-
   }
 
 };
