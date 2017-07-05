@@ -1,0 +1,137 @@
+* { box-sizing: border-box; }
+
+*:focus {
+    outline: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: #333;
+  color:#fff;
+  font-size:18px;
+}
+
+.app {
+}
+
+.dev {
+    position:relative;
+    margin: 0 auto;
+    padding: 100px 20px 150px;
+    max-width: 720px;
+}
+
+.logo {
+    margin:0 0 20px;
+}
+.logo img { height:100px; }
+img + h4 { margin-top:10px; }
+
+hr { border:0; border-bottom:1px dashed #666; margin:20px 0;  }
+
+h2 small { display:block; font-size:14px; }
+
+.icon {
+    display:inline-block;
+    width:30px;
+    text-align:center;
+    font-size:20px;
+    margin:0 5px 0 0;
+}
+.green { color:#1abc9c; }
+
+h2 {
+    position:relative;
+}
+h2 .react {
+    width:60px;
+    height:50px;
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+h3 { margin:0 0 10px; }
+
+.react img {
+    animation: app-logo-spin infinite 30s linear;
+    height: 50px;
+}
+
+@keyframes app-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+pre {
+    width:100%;
+    padding:15px;
+    background:rgba(255,255,255,0.05);
+    margin:0 0 10px;
+    border-radius:5px;
+    font-size:16px;
+
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+
+.loading {
+  display: inline-block;
+  overflow: hidden;
+  height: 1.3em;
+  margin-top: -0.3em;
+  line-height: 1.5em;
+  vertical-align: text-bottom;
+}
+
+.loading::after {
+    display: inline-table;
+    white-space: pre;
+    text-align: left;
+
+    content: "\A.\A..\A...";
+    animation: spin4 2s steps(4) infinite;
+}
+
+.loading.dots::after {
+    content: "⠋\A⠙\A⠹\A⠸\A⠼\A⠴\A⠦\A⠧\A⠇\A⠏";
+    animation: spin10 1s steps(10) infinite;
+}
+
+@keyframes spin4  { to { transform: translateY( -6.0em); } }
+@keyframes spin10 { to { transform: translateY(-15.0em); } }
+
+
+.log + .log {
+    margin-top:10px;
+    padding-top:10px;
+    border-top:1px dotted #666;
+}
+
+h3 img {
+    float:right;
+    display:inline-block;
+    height:30px;
+    vertical-align:middle;
+    margin:-3px 0 0 0;
+}
+
+.ribbon {
+    position:absolute;
+    top:0;
+    right:20px;
+
+    display: block;
+    width: 0;
+    height: 140px;
+    opacity: 1;
+    border: 50px solid #1abc9c;
+    border-top: 0 solid rgba(0,0,0,1);
+    border-bottom: 35px solid rgba(0,0,0,0);
+}
