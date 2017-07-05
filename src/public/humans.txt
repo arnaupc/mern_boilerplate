@@ -1,0 +1,29 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+                     _
+                    | |           o                              o             TM
+ __,   _  _    __,  | |  __   __,     __   _   _  _  _    __ _|_     __   _  _
+/  |  / |/ |  /  |  |/  /  \_/  | |  /    |/  / |/ |/ |  /  \_|  |  /  \_/ |/ |
+\_/|_/  |  |_/\_/|_/|__/\__/ \_/|/|_/\___/|__/  |  |  |_/\__/ |_/|_/\__/   |  |_/
+                               /|
+                               \|
+
+Web: analogicemotion.com
+Contact: info@analogicemotion.com
+
+/* TEAM */
+
+Code & Design: Arnau Pujol Cabarrocas
+Twitter: arnaupc
+From: Girona, Catalonia, Spain
+
+/* SITE */
+
+Technologies: NodeJS, Express, MongoDB, React, Redux, Git...
+Standards: HTML5, CSS3, XML, SVG, WAI...
+Software: Atom, Chrome...
+
+/* THANKS */
+
+Name: Marce, Elvis, Medialab-Prado...
