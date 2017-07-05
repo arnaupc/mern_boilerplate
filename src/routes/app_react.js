@@ -14,6 +14,8 @@ const AppRoutes = () =>
     <App>
     <Switch>
       <Route exact path="/" component={Dev} />
+      <Redirect to="/"/>
+      {/* Redirigim totes les altres pàgines a l'inici */}
       <Route component={Error} />
       {/* Si no coindiceix amb cap url ens mostrarà la pàgina d'error */}
     </Switch>
