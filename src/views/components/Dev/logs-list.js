@@ -14,9 +14,9 @@ export default class LogsList extends React.Component {
       );
     } else {
       return _.map(logs, (log, index) => {
-        console.log(logs);
+        //console.log(logs);
         return (
-          <div className="log">
+          <div className="log" key={index}>
             <span className="date">{ log.timestamp }</span><br/>
             <span className="text">{ log.message }</span>
           </div>

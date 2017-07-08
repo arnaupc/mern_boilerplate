@@ -8,9 +8,9 @@ import Timer from './timer';
 import LogsList from './logs-list';
 
 // Assets
-import logo from '../../../public/icon-logo.svg';
-import reactLogo from '../../../public/react-logo.svg';
-import rings from '../../../public/rings.svg';
+import logo from '../../../public/img/icon-logo.svg';
+import reactLogo from '../../../public/img/react-logo.svg';
+import rings from '../../../public/img/rings.svg';
 
 
 export default class Dev extends Component {
@@ -107,7 +107,7 @@ export default class Dev extends Component {
         </p>
         <hr/>
         <h2>
-          #MERN Stack Dev
+          #MERN Stack Development
           <small><Timer start={ Date.now() } /></small>
           <div className="react">
             <img src={reactLogo} alt="logo" />
