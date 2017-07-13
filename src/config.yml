@@ -1,7 +1,7 @@
 ---
 production: &default
   port: 3010
-  db: 'mongodb://tvUser:xyz123@localhost:27017/matinales_tv'
+  db: 'mongodb://user:xyz123@localhost:27017/test'
   secretCookies: '6777CD62A3E97C837CAF58BCC2AEC'
   secretToken: '6777CD62A3E97C837CAF58BCC2AEC'
   html:
@@ -9,7 +9,7 @@ production: &default
 
 development: &development
   <<: *default
-  db: 'mongodb://localhost:27017/matinales_tv'
+  db: 'mongodb://localhost:27017/test'
   html:
     livereload: true
 ...
