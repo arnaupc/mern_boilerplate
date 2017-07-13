@@ -44,7 +44,8 @@ Start Express app
 
 const app = express();
 
-const isDevelopment = process.env.NODE_ENV !== 'production';
+const host = process.env.HOST || 'localhost';
+const isDevelopment = env.name !== 'production';
 
 /*
 Connect DB
@@ -131,7 +132,6 @@ Routes
 
 app.use('/api', api);
 
-
 // Sending all traffic to react
 app.get('*', (req,res) => {
   res.render('index'); // És una plantilla hbs per poder utilitzar compress
@@ -176,7 +176,9 @@ app.listen(config.port, (err) => {
   if (err) {
     console.log(`Error on db connect!!! ${err}`);
   } else {
-    console.log(`API RESTful http://localhost:${config.port}!`);
-    open(`http://localhost:${config.port}`);
+    console.log(`Server running on ${host}:${config.port}!`);
+    if (isDevelopment) {
+      open(`${host}:${config.port}`);
+    }
   }
 });

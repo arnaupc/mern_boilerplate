@@ -1,5 +1,5 @@
 // Dependencies
-import mongoose, {Schema} from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 import bcrypt from 'bcrypt-nodejs';
 import crypto from 'crypto';
 import shortid from 'shortid';

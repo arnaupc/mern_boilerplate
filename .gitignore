@@ -4,10 +4,10 @@
 /node_modules
 
 # logs
-/logs
+/logs/*
 
 # production
-/build
+/build/*
 
 #dev
 /_continguts

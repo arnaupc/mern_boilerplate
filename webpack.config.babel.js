@@ -37,6 +37,13 @@ const getOutput = () => ({
 
 const getPlugins = () => {
   const plugins = [
+    // Passem variables node
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
+    new webpack.EnvironmentPlugin({
+      'NODE_ENV': 'development'
+    }),
     // Afegim copyright als scripts
     new webpack.BannerPlugin("Copyright analogicemotion.com - Multimedia Publishers"),
     new webpack.optimize.OccurrenceOrderPlugin(true)
@@ -95,7 +102,8 @@ var config  = {
   entry: getEntry(),
   output: getOutput(),
   plugins: getPlugins(),
-  module: getLoaders()
+  module: getLoaders(),
+  target: 'web'
 };
 
 // Exports

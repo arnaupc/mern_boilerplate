@@ -20,22 +20,20 @@ export default class Dev extends Component {
 
     const default_text = 'Loading data<span class="loading"></span>';
     this.state = {
+      date: Date.now(),
+      env: process.env.NODE_ENV,
+      //host: process.env.HOST || 'localhost',
+      //port: config.port,
       os_info: default_text,
       node_info: default_text,
-      node_modules: default_text,
       mongo_info: default_text,
       logs: default_text
     };
 
     this.loadOsInfo = this.loadOsInfo.bind(this);
     this.loadNodeInfo = this.loadNodeInfo.bind(this);
-    this.loadNodeModules = this.loadNodeModules.bind(this);
     this.loadMongoInfo = this.loadMongoInfo.bind(this);
     this.loadLogs = this.loadLogs.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('analogicemotion.com - #mern stack dev');
   }
 
   loadOsInfo() {
@@ -49,13 +47,6 @@ export default class Dev extends Component {
     axios.get('/api/node_info', {cancelToken: this.cancelToken.token })
     .then(res => {
       this.setState({ node_info: res.data });
-    });
-  }
-
-  loadNodeModules() {
-    axios.get('/api/node_modules', {cancelToken: this.cancelToken.token })
-    .then(res => {
-      this.setState({ node_modules: res.data });
     });
   }
 
@@ -79,9 +70,10 @@ export default class Dev extends Component {
   }
 
   componentDidMount() {
+    console.log('analogicemotion.com - #mern stack dev');
+
     this.loadOsInfo();
     this.loadNodeInfo();
-    this.loadNodeModules();
     this.loadMongoInfo();
 
     this.logTimer = setInterval(
@@ -108,28 +100,31 @@ export default class Dev extends Component {
         <hr/>
         <h2>
           #MERN Stack Development
-          <small><Timer start={ Date.now() } /></small>
+          <small><Timer start={ this.state.date } /></small>
           <div className="react">
             <img src={reactLogo} alt="logo" />
           </div>
         </h2>
         <hr/>
         <p>
-          <span className="icon green">&#10003;</span>
+          <span className="icon green">&#10004;</span>
           Server running
           <br/>
-          <span className="icon green">&#10003;</span>
+          <span className="icon green">&#10004;</span>
           MongoDB connected
+          <br/>
+          <span className="icon green">&#x2299;</span>
+          Environment: { this.state.env }
         </p>
         <hr/>
         <h3>Server</h3>
-        <pre dangerouslySetInnerHTML={{ __html: this.state.os_info}}></pre>
+        <pre dangerouslySetInnerHTML={{ __html: this.state.os_info }}></pre>
         <hr/>
         <h3>Node.js</h3>
-        <pre dangerouslySetInnerHTML={{ __html: this.state.node_info + '<h4>Dependencies</h4>' + this.state.node_modules }}></pre>
+        <pre dangerouslySetInnerHTML={{ __html: this.state.node_info }}></pre>
         <hr/>
         <h3>MongoDB</h3>
-        <pre dangerouslySetInnerHTML={{ __html: this.state.mongo_info}}></pre>
+        <pre dangerouslySetInnerHTML={{ __html: this.state.mongo_info }}></pre>
         <hr/>
         <h3><img src={rings} alt="logo" />Logs</h3>
         <LogsList logs={ this.state.logs }/>

@@ -2,7 +2,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 
 module.exports = {
-  
+
   /**
    * Gets the current environment based on NODE_ENV var, defaults to production
    *
@@ -11,7 +11,7 @@ module.exports = {
 
   getEnv() {
     const env = {
-      name: process.env.NODE_ENV ? process.env.NODE_ENV : 'development'
+      name: process.env.NODE_ENV || 'development'
     };
 
     return env;

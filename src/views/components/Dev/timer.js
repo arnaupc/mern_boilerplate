@@ -17,6 +17,7 @@ export default class Timer extends Component {
       () => this.tick(),
       100
     );
+    this.tick()
   }
 
   componentWillUnmount() {

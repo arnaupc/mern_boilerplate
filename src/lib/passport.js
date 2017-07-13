@@ -1,6 +1,6 @@
 // Dependencies
 import passport from 'passport';
-import {Strategy as JwtStrategy, ExtractJwt} from 'passport-jwt';
+import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt';
 import LocalStrategy from 'passport-local';
 
 // Config
