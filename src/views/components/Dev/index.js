@@ -22,8 +22,6 @@ export default class Dev extends Component {
     this.state = {
       date: Date.now(),
       env: process.env.NODE_ENV,
-      //host: process.env.HOST || 'localhost',
-      //port: config.port,
       os_info: default_text,
       node_info: default_text,
       mongo_info: default_text,
