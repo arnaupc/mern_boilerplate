@@ -21,6 +21,7 @@
         "express-handlebars": "^3.0.0",
         "helmet": "^3.6.1",
         "html-minifier": "^3.5.2",
+        "js-yaml": "^3.9.0",
         "lodash": "^4.17.4",
         "moment": "^2.18.1",
         "mongoose": "^4.11.0",
@@ -58,9 +59,11 @@
         "webpack-split-chunks": "^0.2.1"
     },
     "scripts": {
-        "start": "babel-node src/server",
-        "production": "NODE_ENV=production BABEL_ENV=production npm run build && npm start",
+        "start": "babel-node src/server_em6.js",
+        "nodemon": "nodemon src/server_babel.js",
+        "upgrade": "yarn upgrade",
+        "dev": "NODE_ENV=development babel-node src/server_babel.js",
         "build": "NODE_ENV=production webpack --config webpack.config.babel.js",
-        "update": "ncu -u"
+        "production": "NODE_ENV=production BABEL_ENV=production npm run build && npm start"
     }
 }

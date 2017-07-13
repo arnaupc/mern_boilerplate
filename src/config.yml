@@ -1,0 +1,15 @@
+---
+production: &default
+  port: 3010
+  db: 'mongodb://tvUser:xyz123@localhost:27017/matinales_tv'
+  secretCookies: '6777CD62A3E97C837CAF58BCC2AEC'
+  secretToken: '6777CD62A3E97C837CAF58BCC2AEC'
+  html:
+    livereload: false
+
+development: &development
+  <<: *default
+  db: 'mongodb://localhost:27017/matinales_tv'
+  html:
+    livereload: true
+...

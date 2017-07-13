@@ -3,7 +3,9 @@ import passport from 'passport';
 import {Strategy as JwtStrategy, ExtractJwt} from 'passport-jwt';
 import LocalStrategy from 'passport-local';
 
-import config from '../config';
+// Config
+import { getConfig } from './config';
+const config = getConfig();
 
 // Models
 import User from '../models/user';
@@ -32,7 +34,7 @@ const jwtOptions = {
   // Telling Passport to check authorization headers for JWT
   jwtFromRequest: ExtractJwt.fromAuthHeader(),
   // Telling Passport where to find the secret
-  secretOrKey: config.SECRET_TOKEN
+  secretOrKey: config.secretToken
 };
 
 // Setting up JWT login strategy

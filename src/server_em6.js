@@ -23,7 +23,9 @@ import open from 'open'; // si no hi ha errors ens obre automàticament la pàgi
 
 
 // Config
-import config from './config';
+import { getEnv, getConfig } from './lib/config';
+const env = getEnv();
+const config = getConfig();
 
 // Webpack Configuration
 import webpackConfig from '../webpack.config.babel';
@@ -77,11 +79,11 @@ app.disable('x-powered-by');
 app.use(morgan('short', { 'stream': logger.stream }));
 
 // Parse Cookie header and populate req.cookies
-app.use(cookieParser(config.SECRET_COOKIES));
+app.use(cookieParser(config.secretCookies));
 // Cookie session
 app.use(cookieSession({
   name: 'session',
-  secret: config.SECRET_COOKIES,
+  secret: config.secretCookies,
   httpOnly: true,
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }));
