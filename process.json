@@ -1,0 +1,17 @@
+{
+  "apps" : [{
+    "name": "temblores",
+    "script": "./src/server_babel.js",
+    "watch": false,
+    "ignore_watch": "./logs",
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "env_test" : {
+       "NODE_ENV": "test"
+    },
+    "env_production" : {
+       "NODE_ENV": "production"
+    }
+  }]
+}
