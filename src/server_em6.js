@@ -51,14 +51,17 @@ const isDevelopment = env.name !== 'production';
 Connect DB
 */
 
+// Build the connection string
+// 'mongodb://tvUser:xyz123@localhost:27017/matinales_tv'
+const dbURI = `mongodb://${((config.db.user)? config.db.user + ':' + config.db.password + '@' :'') + config.db.host}:${config.db.port}/${config.db.db_name}`;
 // Mongoose connection with mongodb
 const dbOptions = {};
 
 //mongoose.Promise = global.Promise;
 mongoose.Promise = require('bluebird');
-mongoose.connect(config.db, dbOptions)
+mongoose.connect(dbURI, dbOptions)
 .then(() => { // if all is ok we will be here
-  console.log(`Database connected!!!`);
+  console.log(`Database connected!!! ${dbURI}`);
 })
 .catch(err => { // if error we will be here
     console.error('App starting error:', err.stack);

@@ -1,15 +1,28 @@
 ---
 production: &default
-  port: 3010
-  db: 'mongodb://user:xyz123@localhost:27017/test'
+  port: 3000
+  db:
+    host: 'localhost'
+    port: 27017
+    db_name: 'test'
+    user: 'appUser'
+    password: 'xyz123'
   secretCookies: '6777CD62A3E97C837CAF58BCC2AEC'
   secretToken: '6777CD62A3E97C837CAF58BCC2AEC'
   html:
     livereload: false
 
+test: &test
+  <<: *default
+
 development: &development
   <<: *default
-  db: 'mongodb://localhost:27017/test'
+  db:
+    host: 'localhost'
+    port: 27017
+    db_name: 'test'
+    user: false
+    password: false
   html:
     livereload: true
 ...
