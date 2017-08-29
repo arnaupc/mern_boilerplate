@@ -97,6 +97,7 @@ app.use(cookieSession({
 
 // Armoring the API with Helmet
 app.use(helmet());
+app.use(helmet.referrerPolicy());
 
 // Allow Cross-Origin Resource Sharing (CORS)
 app.use(cors());
