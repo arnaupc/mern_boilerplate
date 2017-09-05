@@ -6,9 +6,6 @@
 # logs
 /logs/*
 
-# production
-/build/*
-
 #dev
 /_continguts
 yarn.lock
