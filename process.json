@@ -1,7 +1,8 @@
 {
   "apps" : [{
-    "name": "temblores",
-    "script": "./src/server_babel.js",
+    "name": "mern_boilerplate",
+    "script": "npm",
+    "args": "start",
     "watch": false,
     "ignore_watch": "./logs",
     "env": {

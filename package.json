@@ -63,9 +63,9 @@
     "start": "babel-node src/server_em6.js",
     "nodemon": "nodemon src/server_babel.js",
     "upgrade": "yarn upgrade",
-    "test": "NODE_ENV=test babel-node src/server_em6.js",
-    "dev": "NODE_ENV=development babel-node src/server_babel.js",
-    "build": "NODE_ENV=production webpack --config webpack.config.babel.js",
-    "production": "NODE_ENV=production BABEL_ENV=production npm run build && npm start"
+    "dev": "NODE_ENV=development npm start",
+    "test": "NODE_ENV=test npm start",
+    "build": "NODE_ENV=production BABEL_ENV=production webpack --config webpack.config.babel.js",
+    "production": "npm run build && NODE_ENV=production npm start"
   }
 }

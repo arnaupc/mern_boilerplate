@@ -10,7 +10,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 // Paths
 const PATHS = {
   index: path.join(__dirname, 'src/app_react'),
-  build: path.join(__dirname, 'build'),
+  build: path.join(__dirname, 'src/public/build'),
   src: path.join(__dirname, 'src')
 };
 

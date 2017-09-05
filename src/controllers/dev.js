@@ -9,13 +9,11 @@ import os from 'os';
 import logger from '../lib/logger';
 
 
-/*
-Aquestes crides, més que interactuar amb les apis haurien de fer-ho amb la bbdd
-*/
-
 module.exports = {
 
-
+  /*
+  OS Info
+  */
   osInfo(req, res) {
 
     // Agafem valors
@@ -40,7 +38,11 @@ module.exports = {
   },
 
 
+  /*
+  Node Info
+  */
   nodeInfo(req, res) {
+
     exec('node -v -desc', { encoding: 'utf8', maxBuffer: 100*1024*1024 }, function(err, stdout, stderr) {
       if (err) return res.status(500).send(err);
       return res.status(200).send(stdout);
@@ -48,7 +50,11 @@ module.exports = {
   },
 
 
+  /*
+  Node Modules
+  */
   nodeModules(req, res) {
+
     exec('npm ls --long --depth=0 --parseable | sort -u', { encoding: 'utf8', maxBuffer: 10*1024*1024 }, function(err, stdout, stderr) {
       if (err) return res.status(500).send(err);
 
@@ -67,7 +73,11 @@ module.exports = {
   },
 
 
+  /*
+  Mongo Info
+  */
   mongoInfo(req, res) {
+
     exec('mongod -version', { encoding: 'utf8', maxBuffer: 100*1024*1024 }, function(err, stdout, stderr) {
       if (err) return res.status(500).send(err);
       return res.status(200).send(stdout);
@@ -75,6 +85,9 @@ module.exports = {
   },
 
 
+  /*
+  Get logs --> Winston logger query
+  */
   getLogs(req, res) {
 
     const options = {
@@ -93,5 +106,4 @@ module.exports = {
       }
     });
   }
-
 };

@@ -5,8 +5,8 @@ production: &default
     host: 'localhost'
     port: 27017
     db_name: 'test'
-    user: 'appUser'
-    password: 'xyz123'
+    user: false
+    password: false
   secretCookies: '6777CD62A3E97C837CAF58BCC2AEC'
   secretToken: '6777CD62A3E97C837CAF58BCC2AEC'
   html:

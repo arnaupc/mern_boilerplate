@@ -17,11 +17,13 @@ module.exports = {
     return env;
   },
 
+
   /**
    * Return selected environment config
    *
    * @returns {object} Config
    */
+   
   getConfig() {
     const env = module.exports.getEnv(); //{name: 'development'}; //module.exports.getEnv();
     const config = yaml.safeLoad(
