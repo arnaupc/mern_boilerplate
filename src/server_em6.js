@@ -126,7 +126,11 @@ if (isDevelopment) {
   // Webpack Compiler
   const webpackCompiler = webpack(webpackConfig);
 
-  app.use(webpackDevMiddleware(webpackCompiler));
+  app.use(webpackDevMiddleware(webpackCompiler, {
+    publicPath: '/build/',
+    stats: { colors: true }
+  }));
+
   app.use(webpackHotMiddleware(webpackCompiler));
 }
 
