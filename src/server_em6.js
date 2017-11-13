@@ -11,7 +11,7 @@ import compression from 'compression';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import cookieSession from 'cookie-session';
-import csrf from 'csurf';
+import csrf from 'csrf';
 import hbs from 'express-handlebars';
 import mongoose from 'mongoose';
 import fs from 'fs';
